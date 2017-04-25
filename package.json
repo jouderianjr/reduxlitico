@@ -1,0 +1,23 @@
+{
+  "name": "reduxlitico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --progress --hot --inline --colors"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^2.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0"
+  },
+  "dependencies": {
+    "redux": "^3.6.0"
+  }
+}
