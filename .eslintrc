@@ -1,0 +1,14 @@
+{
+    "extends": "eslint-config-airbnb-es5",
+    "rules": {
+        "func-names": "off",
+        "comma-dangle": ["error", "only-multiline"],
+        "key-spacing": "off",
+        "eol-last": "off"
+    },
+    "globals": {
+        "angular": false,
+        "moment": false,
+        "Foundation": false
+    }
+}
