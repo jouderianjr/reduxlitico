@@ -8,23 +8,26 @@ import {
 
 const store     = createStore(reducer);
 const holder    = document.getElementById('holder');
-const searchBtn = document.getElementById('search-btn');
 const input     = document.getElementById('name-input');
 
-// searchBtn.addEventListener('click', onClick);
-input.addEventListener('keyup', onClick);
+input.addEventListener('keyup', onChange);
 
 store.subscribe(render);
 store.dispatch({type: ALL_POLITICIANS});
 
 function render() {
-    resetHolder();
-    const politicianHtml = store.getState().politicians.map( politician => {
-      let p = document.createElement('p');
-      p.innerHTML = politician.nome;
-      holder.appendChild(p);
-      return p;
-    });
+  resetHolder();
+
+  store.getState().politicians.forEach( politician => {
+    holder.appendChild(createPoliticianHtml(politician));
+  });
+}
+
+function createPoliticianHtml(politician) {
+  let p = document.createElement('p');
+  let vulgo = `<b>vulgo ${politician.codinome}</b>`;
+  p.innerHTML = `${politician.nome} ${politician.codinome ? vulgo : ''} `;
+  return p;
 }
 
 function resetHolder() {
@@ -33,7 +36,6 @@ function resetHolder() {
   }
 }
 
-function onClick() {
-  console.log('foi = '+input.value)
+function onChange() {
   store.dispatch({type: SEARCH_BY_NAME, term: input.value});
 }
